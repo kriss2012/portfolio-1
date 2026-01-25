@@ -159,7 +159,7 @@ function Header({ onOpenAchievements, onOpenInfo, onOpenWallet }: HeaderProps) {
                         <div className="dropdown-divider"></div>
 
                         <a
-                          href="https://github.com/tgkrish/tgkrish-portfolio/issues/new"
+                          href="https://github.com/krishnapatil2006/portfolio/issues/new"
                           className="dropdown-submenu-item dropdown-submenu-report"
                           target="_blank"
                           rel="noopener noreferrer"
@@ -196,7 +196,7 @@ function Header({ onOpenAchievements, onOpenInfo, onOpenWallet }: HeaderProps) {
         <div className="header-container">
           <div className="header-left">
             <div className="logo" onClick={trackLogoClick}>
-              <img src="/tgkrish-logo.png" alt="tgkrish Logo" className="logo-img" />
+              <img src="/tgkrish.png" alt="tgkrish Logo" className="logo-img" />
               <span className="logo-text">{t.portfolioTitle}</span>
             </div>
 
