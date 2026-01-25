@@ -4,11 +4,11 @@
   "description": "A steam-inspired portfolio - stunning interactive portfolio website with Steam profile design, built with React, TypeScript, and Vite. Creative gaming-inspired developer portfolio showcasing projects and achievements.",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
     "build": "npx vite build",
-    "preview": "vite preview"
+"dev": "npx vite",
+"preview": "npx vite preview"
+
   },
-  
   "keywords": [
     "steam-inspired-portfolio",
     "steam-portfolio",
@@ -29,10 +29,8 @@
     "url": "https://github.com/zyonify/steam-profile-portfolio.git"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "^5.0.4",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "vite": "^7.1.9"
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",
@@ -40,8 +38,10 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.1",
+    "@vitejs/plugin-react": "^5.1.2",
     "jsdom": "^27.0.0",
     "typescript": "^5.9.3",
+    "vite": "^7.3.1",
     "vitest": "^3.2.4"
   }
 }
