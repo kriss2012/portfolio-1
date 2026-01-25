@@ -1,11 +1,11 @@
-# robots.txt for Victor Zyon Tiangson Portfolio
+# robots.txt for Krishna Chandrakant Patil Portfolio
 # Allow all search engines to crawl
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://zyon-portfolio.vercel.app/sitemap_index.xml
+Sitemap: https://krish-portfolio.vercel.app/sitemap_index.xml
 
 # Crawl-delay (optional, helps prevent server overload)
 Crawl-delay: 1

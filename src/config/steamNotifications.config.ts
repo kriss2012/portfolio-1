@@ -8,191 +8,119 @@ export interface SteamNotification {
 }
 
 export const steamNotifications: SteamNotification[] = [
-  // Real Friends (Satire)
+  // Friends & Dev Circle
   {
-    id: 'dwight-playing',
-    type: 'playing',
-    name: 'Dwight',
-    message: 'is now playing',
-    action: 'Beet Farm Simulator 2025',
-    avatar: 'https://avatars.akamai.steamstatic.com/348bfcc2f5e138027a503aabe6fcc456920c2ffc_full.jpg'
+    id: 'krishna-online',
+    type: 'friend-online',
+    name: 'Krishna Patil',
+    message: 'is now online',
+    avatar: '/profile-avatar.gif',
   },
   {
-    id: 'jomar-invite',
-    type: 'invite',
-    name: 'Jomar',
-    message: 'has invited you to',
-    action: 'the parlor (no escape)',
-    avatar: 'https://avatars.akamai.steamstatic.com/292cd01bfcde8d57f15f0c5916ccd6c01a324d99_full.jpg'
-  },
-  {
-    id: 'banjo-achievement',
-    type: 'achievement',
-    name: 'Banjo',
-    message: 'unlocked achievement:',
-    action: 'Actually Touched Grass',
-    avatar: 'https://avatars.akamai.steamstatic.com/84445a5904b524abdc0ba160401d7b125ec649eb_full.jpg'
+    id: 'teammate-online',
+    type: 'friend-online',
+    name: 'Hackathon Teammate',
+    message: 'is now online',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Teammate',
   },
 
-  // Friend Online
+  // Playing (Dev Mode)
   {
-    id: 'bill-gates-online',
-    type: 'friend-online',
-    name: 'Bill Gates',
-    message: 'is now online',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BillGates'
-  },
-  {
-    id: 'elon-online',
-    type: 'friend-online',
-    name: 'Elon Musk',
-    message: 'is now online',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ElonMusk'
-  },
-  {
-    id: 'zuck-online',
-    type: 'friend-online',
-    name: 'Mark Zuckerberg',
-    message: 'is now online in the Metaverse',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Zuckerberg'
-  },
-  {
-    id: 'jobs-online',
-    type: 'friend-online',
-    name: 'Steve Jobs',
-    message: 'is now online',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=SteveJobs'
-  },
-
-  // Playing Games
-  {
-    id: 'elon-playing',
+    id: 'krishna-coding',
     type: 'playing',
-    name: 'Elon Musk',
-    message: 'is now playing',
-    action: 'Twitter Takeover Simulator',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ElonMusk'
+    name: 'Krishna Patil',
+    message: 'is now coding',
+    action: 'AI & ML Models',
+    avatar: '/profile-avatar.gif',
   },
   {
-    id: 'zuck-vr',
+    id: 'python-playing',
     type: 'playing',
-    name: 'Mark Zuckerberg',
-    message: 'is now playing',
-    action: 'Metaverse: Population 1',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Zuckerberg'
+    name: 'Python',
+    message: 'is now running',
+    action: 'Machine Learning Pipeline',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Python',
   },
   {
-    id: 'bezos-playing',
+    id: 'docker-playing',
     type: 'playing',
-    name: 'Jeff Bezos',
-    message: 'is now playing',
-    action: 'Rocket League (literally)',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Bezos'
-  },
-  {
-    id: 'gates-minesweeper',
-    type: 'playing',
-    name: 'Bill Gates',
-    message: 'is now playing',
-    action: 'Minesweeper (Classic)',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=BillGates'
-  },
-  {
-    id: 'satoshi-playing',
-    type: 'playing',
-    name: 'Satoshi Nakamoto',
-    message: 'is now playing',
-    action: 'Hide and Seek',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Satoshi'
+    name: 'Docker',
+    message: 'is now running',
+    action: 'Containerized Application',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Docker',
   },
 
   // Invites
   {
-    id: 'roaring-kitty-trade',
+    id: 'hackathon-invite',
     type: 'invite',
-    name: 'Roaring Kitty',
-    message: 'has invited you to trade',
-    action: 'GameStop shares',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=RoaringKitty'
-  },
-  {
-    id: 'buffett-invite',
-    type: 'invite',
-    name: 'Warren Buffett',
-    message: 'has invited you to play',
-    action: 'The Long Game',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=WarrenBuffett'
-  },
-  {
-    id: 'vitalik-invite',
-    type: 'invite',
-    name: 'Vitalik Buterin',
+    name: 'Hackathon Organizer',
     message: 'has invited you to',
-    action: 'merge the mainnet',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Vitalik'
+    action: '24-Hour AI Hackathon',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Hackathon',
+  },
+  {
+    id: 'internship-invite',
+    type: 'invite',
+    name: 'Startup Recruiter',
+    message: 'has invited you to',
+    action: 'AI/ML Internship Interview',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Recruiter',
   },
 
-  // Achievements
+  // Achievements (Real You)
   {
-    id: 'linus-achievement',
+    id: 'sharktank-win',
     type: 'achievement',
-    name: 'Linus Torvalds',
+    name: 'Krishna Patil',
     message: 'unlocked achievement:',
-    action: 'Built Different',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Linus'
+    action: 'Shark Tank Winner 🏆',
+    avatar: '/profile-avatar.gif',
   },
   {
-    id: 'ada-achievement',
+    id: 'ml-achievement',
     type: 'achievement',
-    name: 'Ada Lovelace',
+    name: 'AI System',
     message: 'unlocked achievement:',
-    action: 'First Programmer',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ada'
+    action: '95% Model Accuracy',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=AI',
   },
 
   // Messages
   {
-    id: 'cook-message',
+    id: 'github-message',
     type: 'message',
-    name: 'Tim Cook',
+    name: 'GitHub',
     message: 'sent you a message:',
-    action: '"Sent from my iPhone"',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=TimCook'
+    action: '"Your repo just got starred ⭐"',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=GitHub',
   },
   {
-    id: 'carmack-message',
+    id: 'mentor-message',
     type: 'message',
-    name: 'John Carmack',
+    name: 'Mentor',
     message: 'sent you a message:',
-    action: '"Need more FPS"',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Carmack'
-  },
-  {
-    id: 'gaben-message',
-    type: 'message',
-    name: 'Gabe Newell',
-    message: 'sent you a message:',
-    action: '"Half-Life 3 confirmed?"',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Gaben'
+    action: '"Great progress on your ML project!"',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mentor',
   },
 
-  // Trade Offers
+  // Trade (Dev Humor)
   {
-    id: 'woz-trade',
+    id: 'coffee-trade',
     type: 'trade',
-    name: 'Steve Wozniak',
+    name: 'Late Night Coding',
     message: 'wants to trade',
-    action: 'vintage Apple I for your code',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Wozniak'
+    action: 'sleep for clean code',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Coffee',
   },
   {
-    id: 'dorsey-trade',
+    id: 'bug-trade',
     type: 'trade',
-    name: 'Jack Dorsey',
+    name: 'Production Bug',
     message: 'wants to trade',
-    action: 'first tweet NFT',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Dorsey'
-  }
+    action: 'peace for chaos',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Bug',
+  },
 ]
 
 // Get random notification

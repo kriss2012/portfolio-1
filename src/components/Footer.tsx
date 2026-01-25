@@ -1,38 +1,45 @@
+import { useCallback } from 'react'
 import './Footer.css'
 import { useLanguage } from '../contexts/LanguageContext'
 import { portfolioConfig } from '../config/portfolio.config'
 
 function Footer() {
   const { t } = useLanguage()
+
   const currentYear = new Date().getFullYear()
   const startYear = 2025 // Portfolio launch year
-  const yearDisplay = startYear === currentYear ? `${currentYear}` : `${startYear} - ${currentYear}`
+  const yearDisplay =
+    startYear === currentYear
+      ? `${currentYear}`
+      : `${startYear} - ${currentYear}`
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = useCallback((sectionId: string) => {
     const section = document.getElementById(sectionId)
-    if (section) {
-      const headerOffset = 100
-      const elementPosition = section.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+    if (!section) return
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
+    const headerOffset = 100
+    const elementPosition = section.getBoundingClientRect().top
+    const offsetPosition =
+      elementPosition + window.pageYOffset - headerOffset
 
-      // Add highlight animation (same as header)
-      section.classList.add('highlight-pulse')
-      setTimeout(() => {
-        section.classList.remove('highlight-pulse')
-      }, 2000)
-    }
-  }
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth',
+    })
+
+    // Highlight animation
+    section.classList.add('highlight-pulse')
+    const timeout = setTimeout(() => {
+      section.classList.remove('highlight-pulse')
+      clearTimeout(timeout)
+    }, 2000)
+  }, [])
 
   const quickLinks = [
     { name: t.profile, id: 'profile' },
     { name: t.projects, id: 'projects' },
     { name: t.contact, id: 'contact' },
-    { name: t.skills, id: 'skills' }
+    { name: t.skills, id: 'skills' },
   ]
 
   const socialLinks = [
@@ -40,20 +47,20 @@ function Footer() {
       name: 'GitHub',
       url: `https://github.com/${portfolioConfig.social.github}`,
       icon: 'github',
-      show: true
+      show: true,
     },
     {
       name: 'LinkedIn',
       url: portfolioConfig.social.linkedin,
       icon: 'linkedin',
-      show: !!portfolioConfig.social.linkedin
+      show: !!portfolioConfig.social.linkedin,
     },
     {
       name: 'Email',
       url: `mailto:${portfolioConfig.personal.email}`,
       icon: 'email',
-      show: true
-    }
+      show: true,
+    },
   ].filter(link => link.show)
 
   return (
@@ -61,6 +68,7 @@ function Footer() {
       {/* Top Section */}
       <div className="footer-top">
         <div className="footer-container">
+
           {/* Quick Links */}
           <div className="footer-column">
             <h3 className="footer-heading">{t.footerQuickLinks}</h3>
@@ -68,8 +76,8 @@ function Footer() {
               {quickLinks.map(link => (
                 <li key={link.id}>
                   <button
-                    onClick={() => scrollToSection(link.id)}
                     className="footer-link"
+                    onClick={() => scrollToSection(link.id)}
                   >
                     {link.name}
                   </button>
@@ -116,6 +124,7 @@ function Footer() {
             <h3 className="footer-heading">{t.footerAbout}</h3>
             <p className="footer-tagline">{t.footerTagline}</p>
           </div>
+
         </div>
       </div>
 

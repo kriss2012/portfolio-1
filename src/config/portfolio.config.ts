@@ -2,50 +2,53 @@ import { PortfolioConfig } from '../types'
 
 /**
  * Portfolio Configuration
- *
- * This file contains all your personal information, projects, and settings.
- * Update this file to customize your portfolio.
+ * Customized for Krishna Patil
  */
 
 export const portfolioConfig: PortfolioConfig = {
   // Personal Information
   personal: {
-    name: 'Victor Zyon Tiangson',
-    title: '.NET Developer | Development Team Lead | Web Developer | Scrum Master',
-    location: 'Quezon City, Philippines',
-    bio: 'Full-stack developer specializing in .NET and React, passionate about building interactive web experiences with modern technologies. Team lead with 8+ years of experience delivering enterprise solutions.',
-    email: 'tiangsonzyon@gmail.com',
-    phone: '(+63) 968-306-8973',
-    birthday: '1996-01-05', // January 5, 1996
+    name: 'Krishna Patil',
+    title: 'Python Developer | AI & ML Engineer | Web Developer',
+    location: 'Pachora, Maharashtra, India',
+    bio: 'Results-driven BCA student specializing in Artificial Intelligence, Machine Learning, and full-stack development. Passionate about building scalable, data-driven, real-world solutions.',
+    email: '202krishnapatil@gmail.com',
+    phone: '+91 9850159631',
+    birthday: '2006-02-20',
     banner: '/profile-background.jpg',
-    resumeUrl: '/resume.pdf', // Add your resume PDF to the public folder
+    resumeUrl: '/resume.pdf',
     avatar: '/profile-avatar.gif',
   },
 
   // Social Media Links
   social: {
-    github: 'zyonify',
-    linkedin: 'https://www.linkedin.com/in/zyontiangson/',
+    github: 'kriss2012',
+    linkedin: 'https://www.linkedin.com/in/krishna-patil-33969536b/',
     twitter: undefined,
     website: undefined,
   },
 
   // Current Work Status
   workStatus: {
-    status: 'away', // 'available' | 'employed' | 'away' | 'busy'
-    message: 'Not Looking for Work',
+    status: 'available', // 'available' | 'employed' | 'away' | 'busy'
+    message: 'Open to Internships & Entry-Level Roles',
   },
 
-  // Featured Projects (will be enhanced with GitHub API data)
+  // Featured Projects
   featuredProjects: [
     {
-      repo: 'birthday-surprise',
-      demoUrl: 'https://birthday-surprise-v1.vercel.app/',
+      repo: 'Fake-Reviews-Identification-System',
+      demoUrl: '#',
       featured: true,
     },
     {
-      repo: 'key-rush',
-      demoUrl: 'https://key-rush-eight.vercel.app/',
+      repo: 'AI-Medical-Consultancy-System',
+      demoUrl: '#',
+      featured: true,
+    },
+    {
+      repo: 'AI-Desktop-Assistant-Kirito',
+      demoUrl: '#',
       featured: true,
     },
   ],
@@ -54,59 +57,39 @@ export const portfolioConfig: PortfolioConfig = {
   achievements: [
     {
       id: 1,
-      title: 'Professional Scrum Master™ I',
-      description: 'Issued by Scrum.org',
+      title: 'Shark Tank Winner',
+      description: '1st Prize – Innovation Competition',
       icon: '🏆',
-      logo: '/psm1-logo.png',
-      year: 2023,
+      year: 2025,
       unlocked: true,
-      rarity: 'epic',
+      rarity: 'legendary',
     },
     {
       id: 2,
-      title: 'Professional Scrum Facilitation Skills™',
-      description: 'Issued by Scrum.org',
-      icon: '⭐',
-      logo: '/psf-logo.png',
+      title: 'Shark Tank Runner-Up',
+      description: '2nd Prize – Startup Pitch Event',
+      icon: '🥈',
       year: 2024,
       unlocked: true,
       rarity: 'epic',
     },
     {
       id: 3,
-      title: 'Outstanding Thesis Award',
-      description: 'First Place - System Analysis & Design',
-      icon: '🎓',
-      year: 2017,
+      title: 'AI & Machine Learning Internship',
+      description: 'iBase Electrosoft LLP (150 Hours)',
+      icon: '🤖',
+      year: 2025,
       unlocked: true,
-      rarity: 'legendary',
+      rarity: 'epic',
     },
     {
       id: 4,
-      title: '8+ Years of Experience',
-      description: 'Full-Stack Development',
-      icon: '💻',
-      year: 2017,
-      unlocked: true,
-      rarity: 'rare',
-    },
-    {
-      id: 5,
-      title: 'Team Leadership',
-      description: 'Development Team Lead - Technical',
-      icon: '👥',
+      title: '95% ML Model Accuracy',
+      description: 'Fake Reviews Detection System',
+      icon: '📊',
       year: 2025,
       unlocked: true,
       rarity: 'rare',
-    },
-    {
-      id: 6,
-      title: 'Civil Service Professional',
-      description: 'Government Certified Professional',
-      icon: '📜',
-      year: 2017,
-      unlocked: true,
-      rarity: 'common',
     },
   ],
 
@@ -114,85 +97,84 @@ export const portfolioConfig: PortfolioConfig = {
   hobbies: [
     {
       id: 1,
-      title: 'Running',
-      description: 'Passionate about long-distance running and pushing physical limits',
-      icon: '🏃',
+      title: 'AI Experimentation',
+      description: 'Building and testing machine learning and NLP models',
+      icon: '🧠',
     },
     {
       id: 2,
-      title: 'Perfume Collecting',
-      description: 'Curating a diverse collection of unique fragrances',
-      icon: '🌸',
+      title: 'Problem Solving',
+      description: 'Enjoy solving real-world problems using data and code',
+      icon: '🧩',
     },
     {
       id: 3,
-      title: 'Casual Gamer',
-      description: 'Currently playing Hollow Knight: Silksong -- Digimon Story: Time Stranger is next on my backlog',
-      icon: '🎮',
-      status: 'Currently Active',
+      title: 'Tech Learning',
+      description: 'Continuously learning new technologies and frameworks',
+      icon: '📚',
     },
     {
       id: 4,
-      title: 'Creative Maker',
-      description: 'Creating stuff on a whim - always experimenting with new ideas',
-      icon: '✨',
-    },
-    {
-      id: 5,
-      title: 'Melbourne Zoo Explorer',
-      description: 'Love travelling to Melbourne, Australia and exploring the amazing zoos',
-      icon: '🦘',
-    },
-    {
-      id: 6,
-      title: 'Whiskey Sour Enthusiast',
-      description: 'Appreciating the perfect balance of bourbon, lemon, and sugar',
-      icon: '🥃',
-    },
-    {
-      id: 7,
-      title: 'Ointment Collector',
-      description: 'Katinko, White Flower, and Poi Sian enthusiast',
-      icon: '💊',
-    },
-    {
-      id: 8,
-      title: 'Adobo Lover',
-      description: 'Love all things adobo -- all variants welcome',
-      icon: '🍲',
+      title: 'Hackathons & Competitions',
+      description: 'Participating in innovation challenges and startup events',
+      icon: '🚀',
     },
   ],
 
-  // Technical Skills (from resume)
+  // Technical Skills
   technicalSkills: {
-    'Languages & Frameworks': [
-      'C#', '.NET Framework / .NET 8', 'ASP.NET MVC', 'Web Forms', 'Entity Framework',
-      'LINQ', 'ADO.NET', 'Python', 'JavaScript (ES6+)', 'TypeScript'
+    'Programming Languages': [
+      'Python',
+      'Java',
+      'C++',
+      'JavaScript',
     ],
-    'Front-end & UI': [
-      'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap 5', 'React', 'Blazor',
-      'Three.js', 'React Three Fiber', 'Framer Motion'
+    'Web & Backend': [
+      'Django',
+      'Flask',
+      'React',
+      'Node.js',
+      'REST APIs',
     ],
-    'Database': [
-      'MS SQL Server', 'Supabase', 'Firebase'
+    'AI / Machine Learning': [
+      'TensorFlow',
+      'PyTorch',
+      'Scikit-learn',
+      'Natural Language Processing (NLP)',
+      'Computer Vision',
+      'Generative AI',
     ],
-    'Tools & Platforms': [
-      'Visual Studio', 'VS Code', 'Git', 'Azure DevOps',
-      'SQL Server Management Studio', 'IIS', 'Vercel', 'Vite', 'DocFX', 'Selenium'
+    'Databases': [
+      'MySQL',
+      'PostgreSQL',
+      'MongoDB',
     ],
-    'Practices': [
-      'Agile Scrum', 'CI/CD', 'Code Reviews', 'Software Documentation'
-    ]
+    'Cloud & DevOps': [
+      'AWS',
+      'Azure',
+      'Google Cloud Platform',
+      'Docker',
+      'Kubernetes',
+      'Git',
+      'CI/CD',
+    ],
+    'Concepts & Practices': [
+      'MLOps',
+      'Agile / Scrum',
+      'Linux',
+      'Model Deployment',
+      'System Design',
+    ],
   },
 
   // Display Settings
-  showTestimonials: false, // Set to true if you add testimonials later
-  showAllRepos: false, // Set to true to display all GitHub repositories
+  showTestimonials: false,
+  showAllRepos: false,
 }
 
 // Helper function to calculate years of experience
 export const getYearsOfExperience = (): number => {
-  const startYear = 2017
+  const startYear = 2024 // active development start
   const currentYear = new Date().getFullYear()
   return currentYear - startYear
 }
@@ -202,7 +184,7 @@ export const getWorkStatusConfig = (status: string) => {
   const statusConfig = {
     available: {
       badge: 'online',
-      text: 'Available for Work',
+      text: 'Open to Work',
       color: '#a4d007',
     },
     employed: {
@@ -235,7 +217,6 @@ export const getAge = (): number => {
   let age = today.getFullYear() - birthday.getFullYear()
   const monthDiff = today.getMonth() - birthday.getMonth()
 
-  // Adjust if birthday hasn't occurred yet this year
   if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthday.getDate())) {
     age--
   }

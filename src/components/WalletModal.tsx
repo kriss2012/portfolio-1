@@ -7,10 +7,10 @@ interface WalletModalProps {
   onClose: () => void
 }
 
-type PaymentTab = 'gcash' | 'wise'
+type PaymentTab = 'upi' | 'international'
 
 function WalletModal({ isOpen, onClose }: WalletModalProps) {
-  const [activeTab, setActiveTab] = useState<PaymentTab>('gcash')
+  const [activeTab, setActiveTab] = useState<PaymentTab>('upi')
 
   useEffect(() => {
     if (isOpen) {
@@ -26,7 +26,7 @@ function WalletModal({ isOpen, onClose }: WalletModalProps) {
       <div className="wallet-modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div>
-            <h2 className="modal-title">Buy me a coffee?</h2>
+            <h2 className="modal-title">Support My Work ☕</h2>
           </div>
           <button className="modal-close" onClick={onClose}>
             ×
@@ -35,77 +35,66 @@ function WalletModal({ isOpen, onClose }: WalletModalProps) {
 
         <div className="wallet-tabs">
           <button
-            className={`wallet-tab ${activeTab === 'gcash' ? 'active' : ''}`}
-            onClick={() => setActiveTab('gcash')}
+            className={`wallet-tab ${activeTab === 'upi' ? 'active' : ''}`}
+            onClick={() => setActiveTab('upi')}
           >
-            📱 GCash
+            🇮🇳 UPI
           </button>
           <button
-            className={`wallet-tab ${activeTab === 'wise' ? 'active' : ''}`}
-            onClick={() => setActiveTab('wise')}
+            className={`wallet-tab ${activeTab === 'international' ? 'active' : ''}`}
+            onClick={() => setActiveTab('international')}
           >
-            🌍 Wise
+            🌍 International
           </button>
         </div>
 
         <div className="modal-content">
-          {activeTab === 'gcash' && (
+          {activeTab === 'upi' && (
             <div className="payment-section">
-              <h3 className="payment-title">Send via GCash</h3>
+              <h3 className="payment-title">Pay via UPI</h3>
               <p className="payment-description">
-                Scan the QR code below using your GCash app to send support. Every little bit helps! ☕
+                Scan the QR code using Google Pay, PhonePe, or Paytm.  
+                Your support helps me build more AI & software projects 🚀
               </p>
               <div className="qr-code-container">
                 <img
-                  src="/gcash.jpg"
-                  alt="GCash QR Code"
+                  src="/upi-qr.jpg"
+                  alt="UPI QR Code"
                   className="qr-code-image"
                 />
               </div>
               <p className="payment-note">
-                For Philippine-based supporters
+                Supported apps: GPay • PhonePe • Paytm
               </p>
             </div>
           )}
 
-          {activeTab === 'wise' && (
+          {activeTab === 'international' && (
             <div className="payment-section">
-              <h3 className="payment-title">Send via Wise</h3>
+              <h3 className="payment-title">Support Internationally</h3>
               <p className="payment-description">
-                International supporters can send via Wise with zero fees for many countries. 🌎
+                If you’re outside India, you can support me using international payment platforms 🌎
               </p>
               <div className="wise-button-container">
                 <a
-                  href="https://wise.com/pay/me/victorzyonposadast"
+                  href="https://www.buymeacoffee.com/krishnapatil"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="wise-button"
                 >
-                  <svg
-                    className="wise-icon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"></path>
-                    <path d="M21 3v5h-5"></path>
-                  </svg>
-                  Send via Wise
+                  ☕ Buy Me a Coffee
                 </a>
               </div>
               <p className="payment-note">
-                For international supporters • Zero fees for many countries
+                Secure international payments • Cards supported
               </p>
             </div>
           )}
 
           <div className="wallet-footer">
             <p className="thank-you-message">
-              Thank you for your support! Your generosity helps me continue building awesome projects. 💙
+              Thank you for supporting my journey 💙  
+              Every contribution motivates me to keep learning and building.
             </p>
           </div>
         </div>

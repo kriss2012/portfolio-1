@@ -7,44 +7,57 @@ import { useLanguage } from '../contexts/LanguageContext'
 function TechnicalSkills() {
   const { t } = useLanguage()
 
-  // Track section visits with Intersection Observer
   useEffect(() => {
     const skillsSection = document.getElementById('skills')
+    if (!skillsSection) return
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && entry.target.id === 'skills') {
-            trackSectionVisit('skills')
-          }
-        })
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          trackSectionVisit('skills')
+          observer.disconnect() // trigger once only
+        }
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     )
 
-    if (skillsSection) observer.observe(skillsSection)
+    observer.observe(skillsSection)
 
-    return () => {
-      if (skillsSection) observer.unobserve(skillsSection)
-    }
+    return () => observer.disconnect()
   }, [])
 
   return (
-    <section id="skills" className="showcase-card card tech-stack">
-      <div className="card-header">{t.technicalSkills}</div>
+    <section
+      id="skills"
+      className="showcase-card card tech-stack"
+      aria-label="Technical Skills"
+    >
+      <div className="card-header">
+        🤖 {t.technicalSkills}
+      </div>
+
       <div className="skills-showcase">
-        {Object.entries(portfolioConfig.technicalSkills).map(([category, skills]) => (
-          <div key={category} className="skill-category">
-            <h3 className="skill-category-title">{category}</h3>
-            <div className="skill-tags">
-              {skills.map((skill, index) => (
-                <span key={index} className="skill-tag">
-                  {skill}
-                </span>
-              ))}
+        {Object.entries(portfolioConfig.technicalSkills).map(
+          ([category, skills]) => (
+            <div key={category} className="skill-category">
+              <h3 className="skill-category-title">
+                {category}
+              </h3>
+
+              <div className="skill-tags">
+                {skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="skill-tag"
+                    title={skill}
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          )
+        )}
       </div>
     </section>
   )

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import './Showcases.css'
 import { portfolioConfig } from '../config/portfolio.config'
 import { unlockAchievement, trackSectionVisit } from '../services/achievementService'
@@ -6,52 +6,60 @@ import { useLanguage } from '../contexts/LanguageContext'
 
 function PersonalHobbies() {
   const { t } = useLanguage()
+  const sectionRef = useRef<HTMLElement | null>(null)
+  const hasTrackedRef = useRef(false)
 
-  // Track section visits with Intersection Observer
+  // Track section visit once
   useEffect(() => {
-    const hobbiesSection = document.querySelector('.hobbies-showcase')
+    if (!sectionRef.current) return
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && entry.target.classList.contains('hobbies-showcase')) {
-            trackSectionVisit('hobbies')
-          }
-        })
+      ([entry]) => {
+        if (entry.isIntersecting && !hasTrackedRef.current) {
+          trackSectionVisit('hobbies')
+          hasTrackedRef.current = true
+          observer.disconnect()
+        }
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     )
 
-    if (hobbiesSection) observer.observe(hobbiesSection)
+    observer.observe(sectionRef.current)
 
-    return () => {
-      if (hobbiesSection) observer.unobserve(hobbiesSection)
-    }
+    return () => observer.disconnect()
   }, [])
 
   return (
-    <section className="showcase-card card hobbies-showcase">
+    <section
+      ref={sectionRef}
+      className="showcase-card card hobbies-showcase"
+    >
       <div className="card-header">{t.personalHobbies}</div>
+
       <div className="hobbies-grid">
         {portfolioConfig.hobbies.map(hobby => (
           <div
             key={hobby.id}
             className="hobby-card"
-            onClick={() => {
-              if (hobby.id === 3) {
-                unlockAchievement('fellow-gamer')
-              }
-            }}
+            onClick={() =>
+              hobby.id === 3 && unlockAchievement('fellow-gamer')
+            }
           >
             <div className="hobby-icon">{hobby.icon}</div>
+
             <div className="hobby-content">
               <div className="hobby-header">
                 <h4 className="hobby-title">{hobby.title}</h4>
                 {hobby.status && (
-                  <span className="hobby-status">{hobby.status}</span>
+                  <span className="hobby-status">
+                    {hobby.status}
+                  </span>
                 )}
               </div>
-              <p className="hobby-description">{hobby.description}</p>
+
+              <p className="hobby-description">
+                {hobby.description}
+              </p>
             </div>
           </div>
         ))}
