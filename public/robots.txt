@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://krish-portfolio.vercel.app/sitemap_index.xml
+Sitemap: https://tgkrish-portfolio.netlify.app/sitemap_index.xml
 
 # Crawl-delay (optional, helps prevent server overload)
 Crawl-delay: 1
