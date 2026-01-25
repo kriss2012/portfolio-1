@@ -17,7 +17,9 @@ import {
   onAchievementUnlock,
 } from '../services/achievementService'
 
-// Calculate developer level (Steam-like XP system)
+/* ---------------------------
+   LEVEL CALCULATION
+---------------------------- */
 function calculateLevel(stats: {
   repos: number
   followers: number
@@ -29,35 +31,43 @@ function calculateLevel(stats: {
   return calculateLevelFromXP(totalXP)
 }
 
-// Extract gradient colors for SVG
+/* ---------------------------
+   SAFE GRADIENT PARSER
+---------------------------- */
 function extractGradientColors(
   gradientString: string
 ): { start: string; end: string } {
   const matches = gradientString.match(/#[0-9A-Fa-f]{6}/g)
 
-  if (matches?.length >= 2) {
-    return { start: matches[0], end: matches[1] }
+  if (!matches || matches.length === 0) {
+    return { start: '#4A90E2', end: '#357ABD' }
   }
 
-  if (matches?.length === 1) {
+  if (matches.length === 1) {
     return { start: matches[0], end: matches[0] }
   }
 
-  return { start: '#4A90E2', end: '#357ABD' }
+  return {
+    start: matches[0],
+    end: matches[1],
+  }
 }
 
+/* ---------------------------
+   COMPONENT
+---------------------------- */
 function ProfileStats() {
-  const [repos, setRepos] = useState(0)
-  const [followers, setFollowers] = useState(0)
-  const [stars, setStars] = useState(0)
-  const [achievementsXP, setAchievementsXP] = useState(0)
+  const [repos, setRepos] = useState<number>(0)
+  const [followers, setFollowers] = useState<number>(0)
+  const [stars, setStars] = useState<number>(0)
+  const [achievementsXP, setAchievementsXP] = useState<number>(0)
   const [achievementMeta, setAchievementMeta] = useState({
     unlockedCount: 0,
     totalCount: 0,
   })
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState<boolean>(true)
 
-  const mountedRef = useRef(true)
+  const mountedRef = useRef<boolean>(true)
 
   const yearsOfExperience = getYearsOfExperience()
   const statusConfig = getWorkStatusConfig(
@@ -73,12 +83,18 @@ function ProfileStats() {
     achievementsXP,
   }
 
-  const { level, currentLevelXP, nextLevelXP, progress } =
-    calculateLevel(stats)
+  const {
+    level,
+    currentLevelXP,
+    nextLevelXP,
+    progress,
+  } = calculateLevel(stats)
 
   const levelStyle = getLevelBorderStyle(level)
 
-  // Load GitHub stats
+  /* ---------------------------
+     LOAD GITHUB STATS
+  ---------------------------- */
   useEffect(() => {
     mountedRef.current = true
 
@@ -111,7 +127,9 @@ function ProfileStats() {
     }
   }, [])
 
-  // Load & react to achievement XP
+  /* ---------------------------
+     ACHIEVEMENTS XP
+  ---------------------------- */
   useEffect(() => {
     const updateAchievements = () => {
       const stats = getAchievementStats()
@@ -123,12 +141,13 @@ function ProfileStats() {
     }
 
     updateAchievements()
-
     const unsubscribe = onAchievementUnlock(updateAchievements)
     return unsubscribe
   }, [])
 
-  // Dynamic CSS variables
+  /* ---------------------------
+     STYLES
+  ---------------------------- */
   const levelCSSVars = {
     '--level-color': levelStyle.color,
     '--level-glow-color': levelStyle.glow || levelStyle.color,
@@ -139,11 +158,13 @@ function ProfileStats() {
     ? extractGradientColors(levelStyle.gradient)
     : { start: levelStyle.color, end: levelStyle.color }
 
+  /* ---------------------------
+     RENDER
+  ---------------------------- */
   return (
     <div className="profile-stats-card card" style={levelCSSVars}>
       <div className="card-header">{t.developerLevel}</div>
 
-      {/* Level Display */}
       <div className="level-section">
         <div className="level-display">
           <div className="level-circle">
@@ -174,14 +195,8 @@ function ProfileStats() {
                     x2="100%"
                     y2="100%"
                   >
-                    <stop
-                      offset="0%"
-                      stopColor={gradientColors.start}
-                    />
-                    <stop
-                      offset="100%"
-                      stopColor={gradientColors.end}
-                    />
+                    <stop offset="0%" stopColor={gradientColors.start} />
+                    <stop offset="100%" stopColor={gradientColors.end} />
                   </linearGradient>
                 ) : null}
               </defs>
@@ -233,7 +248,6 @@ function ProfileStats() {
           </div>
         </div>
 
-        {/* XP Bar */}
         <div className="xp-progress">
           <div className="xp-bar-container">
             <div
@@ -252,7 +266,6 @@ function ProfileStats() {
         </div>
       </div>
 
-      {/* Stats Badges */}
       <div className="profile-stats-badges">
         <div className="stat-badge projects-badge">
           <span>{t.repositories}</span>

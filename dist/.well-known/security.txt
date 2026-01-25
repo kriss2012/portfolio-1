@@ -1,0 +1,14 @@
+Contact: mailto:202krishnapatil@gmail.com
+Preferred-Languages: en, mr , hi
+Canonical: https://krish-portfolio.vercel.app/.well-known/security.txt
+Expires: 2026-12-31T23:59:59.000Z
+
+# Security Policy for Krishna Chandrakant Patil Portfolio
+
+# If you discover any security vulnerabilities or have security-related
+# questions about this portfolio website, please contact me directly.
+
+# Personal Portfolio of Krishna Chandrakant Patil
+
+# GitHub: https://github.com/kriss2012
+# LinkedIn: https://www.linkedin.com/in/krishna-patil-33969536b/
