@@ -336,7 +336,7 @@ export const translations: Record<Language, Translations> = {
     contact: '📧',
     skills: '🎯',
     info: 'ℹ️',
-    portfolioTitle: '🎨 ZYON 🚀',
+    portfolioTitle: '🎨 🚀',
 
     developerLevel: '👨‍💻 📊',
     yearsOfExperience: '📅 ⏳',
