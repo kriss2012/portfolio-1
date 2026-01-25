@@ -4,10 +4,9 @@
   "description": "A steam-inspired portfolio - stunning interactive portfolio website with Steam profile design, built with React, TypeScript, and Vite. Creative gaming-inspired developer portfolio showcasing projects and achievements.",
   "main": "index.js",
   "scripts": {
-    "build": "npx vite build",
-"dev": "npx vite",
-"preview": "npx vite preview"
-
+    "build": "vite build",
+    "dev": "vite",
+    "preview": "vite preview"
   },
   "keywords": [
     "steam-inspired-portfolio",
