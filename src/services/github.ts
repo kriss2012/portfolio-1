@@ -3,7 +3,6 @@ import {
   GitHubRepo,
   GitHubLanguages,
   GitHubEvent,
-  ProcessedProject,
   ProcessedStats,
   ProcessedActivity,
   GitHubReplayStats,
@@ -19,6 +18,7 @@ const CACHE_TTL = 60 * 60 * 1000 // 1 hour
  *
  * Fetches and processes data from GitHub's public API
  */
+import { ProcessedProject } from '../types'
 
 // Language colors (common programming languages)
 const LANGUAGE_COLORS: { [key: string]: string } = {

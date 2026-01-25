@@ -12,31 +12,32 @@ function FeaturedProjects() {
   const { t } = useLanguage()
 
   const loadFeaturedProjects = useCallback(async () => {
-    let isMounted = true
-    try {
-      setLoading(true)
+    setLoading(true)
 
-      const projects = await Promise.all(
+    try {
+      const results = await Promise.allSettled(
         portfolioConfig.featuredProjects
-          .filter(project => project.featured)
-          .map(project =>
-            getFeaturedProject(portfolioConfig.social.github, project.repo)
+          .filter(p => p.featured)
+          .map(p =>
+            getFeaturedProject(
+              portfolioConfig.social.github,
+              p.repo
+            )
           )
       )
 
-      if (isMounted) {
-        setFeaturedProjects(
-          projects.filter(Boolean) as ProcessedProject[]
+      const successfulProjects = results
+        .filter(
+          (r): r is PromiseFulfilledResult<ProcessedProject> =>
+            r.status === 'fulfilled' && r.value !== null
         )
-      }
-    } catch (error) {
-      console.error('Error loading featured projects:', error)
-    } finally {
-      if (isMounted) setLoading(false)
-    }
+        .map(r => r.value)
 
-    return () => {
-      isMounted = false
+      setFeaturedProjects(successfulProjects)
+    } catch (error) {
+      console.error('Featured projects load failed:', error)
+    } finally {
+      setLoading(false)
     }
   }, [])
 
@@ -59,7 +60,6 @@ function FeaturedProjects() {
     )
 
     observer.observe(section)
-
     return () => observer.disconnect()
   }, [])
 
@@ -80,29 +80,19 @@ function FeaturedProjects() {
             <div key={project.id} className="featured-project-card">
               <div className="project-image">
                 <img
-                  src={project.image}
+                  src={project.image || '/project-fallback.png'}
                   alt={project.title}
                   loading="lazy"
+                  onError={(e) =>
+                    ((e.target as HTMLImageElement).src =
+                      '/project-fallback.png')
+                  }
                 />
-                <div className="project-overlay">
-                  <div className="project-stats">
-                    <div className="stat">
-                      <span className="stat-icon">⭐</span>
-                      <span className="stat-value">{project.stars}</span>
-                    </div>
-                    <div className="stat">
-                      <span className="stat-icon">🍴</span>
-                      <span className="stat-value">{project.forks}</span>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               <div className="project-info">
                 <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">
-                  {project.description}
-                </p>
+                <p className="project-description">{project.description}</p>
 
                 <div className="project-tech">
                   {project.tech.slice(0, 4).map(tech => (
@@ -122,9 +112,6 @@ function FeaturedProjects() {
                       trackProjectView(project.id.toString())
                     }
                   >
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                    </svg>
                     Code
                   </a>
 
@@ -138,9 +125,6 @@ function FeaturedProjects() {
                         trackProjectView(project.id.toString())
                       }
                     >
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
-                      </svg>
                       Demo
                     </a>
                   )}
@@ -150,9 +134,9 @@ function FeaturedProjects() {
           ))}
         </div>
       ) : (
-        <div className="featured-projects-grid">
-          <p className="error-text">Failed to load featured projects</p>
-        </div>
+        <p className="error-text">
+          No featured projects available right now.
+        </p>
       )}
     </section>
   )
