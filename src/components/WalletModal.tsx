@@ -77,7 +77,7 @@ function WalletModal({ isOpen, onClose }: WalletModalProps) {
               </p>
               <div className="wise-button-container">
                 <a
-                  href="https://www.buymeacoffee.com/krishnapatil"
+                  href="https://buymeacoffee.com/202krishnas"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="wise-button"
