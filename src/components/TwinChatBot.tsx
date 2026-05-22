@@ -87,8 +87,9 @@ const TwinChatBot: React.FC = () => {
     setIsTyping(true);
 
     try {
-      // Connect to the local FastAPI backend we created
-      const res = await fetch('http://127.0.0.1:8000/api/chat', {
+      // Connect to the backend (uses VITE_BACKEND_URL in production, localhost in development)
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://127.0.0.1:8000';
+      const res = await fetch(`${backendUrl}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userText, session_id: 'portfolio_visitor' })
