@@ -191,7 +191,13 @@ const TwinChatBot: React.FC = () => {
       
       {!isOpen && (
         <div className="twin-chat-btn" onClick={() => setIsOpen(true)}>
-          🤖
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '30px', height: '30px' }}>
+            <path d="M21 11.5A8.38 8.38 0 0 1 20.1 15.3A8.5 8.5 0 0 1 12.5 20A8.38 8.38 0 0 1 8.7 19.1L3 21L4.9 15.3A8.38 8.38 0 0 1 4 11.5A8.5 8.5 0 0 1 11.6 6.8A8.38 8.38 0 0 1 15.4 7.7H15.9A8.48 8.48 0 0 1 21 11.5Z" />
+            <path d="M8 10V14" />
+            <path d="M6 12H10" />
+            <circle cx="16" cy="11" r="1" fill="currentColor" stroke="none" />
+            <circle cx="14" cy="13" r="1" fill="currentColor" stroke="none" />
+          </svg>
         </div>
       )}
     </div>
