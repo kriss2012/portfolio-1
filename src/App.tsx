@@ -21,6 +21,7 @@ import Footer from './components/Footer'
 import { LanguageProvider } from './contexts/LanguageContext'
 import { portfolioConfig } from './config/portfolio.config'
 import { initializeAchievementSystem, trackKonamiKey } from './services/achievementService'
+import TwinChatBot from './components/TwinChatBot'
 import './styles/App.css'
 
 function App() {
@@ -99,6 +100,7 @@ function App() {
           isOpen={showWalletModal}
           onClose={() => setShowWalletModal(false)}
         />
+        <TwinChatBot />
       </div>
     </LanguageProvider>
   )

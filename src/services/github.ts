@@ -11,7 +11,7 @@ import { getCache, setCache } from '../utils/cache'
 import { portfolioConfig } from '../config/portfolio.config'
 
 const GITHUB_API_BASE = 'https://api.github.com'
-const CACHE_TTL = 60 * 60 * 1000 // 1 hour
+const CACHE_TTL = 0 // Disabled cache to fetch latest stats immediately
 
 /**
  * GitHub API Service

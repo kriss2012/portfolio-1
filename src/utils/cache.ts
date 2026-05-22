@@ -31,6 +31,9 @@ export function setCache<T>(key: string, data: T, ttl: number = DEFAULT_TTL): vo
  * Get data from cache if not expired
  */
 export function getCache<T>(key: string): T | null {
+  // Always return null to bypass cache and fetch latest GitHub stats
+  return null;
+  
   try {
     const cacheKey = `${CACHE_PREFIX}${key}`
     const cached = localStorage.getItem(cacheKey)
