@@ -1,1 +1,6 @@
 .env
+node_modules/
+dist/
+__pycache__/
+backend/twin_chroma_db/
+backend/rag_chroma_db/
